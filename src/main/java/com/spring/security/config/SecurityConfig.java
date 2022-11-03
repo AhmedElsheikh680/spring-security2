@@ -1,10 +1,15 @@
 package com.spring.security.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -35,8 +40,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("Ahmed").password("12345").authorities("admin")
-                .and().withUser("Mohamed").password("12345").authorities("player")
-                .and().passwordEncoder(NoOpPasswordEncoder.getInstance());
+//        auth.inMemoryAuthentication().withUser("Ahmed").password("12345").authorities("admin")
+//                .and().withUser("Mohamed").password("12345").authorities("player")
+//                .and().passwordEncoder(NoOpPasswordEncoder.getInstance());
+
+        InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
+       UserDetails userDetails =  User.withUsername("Ahmed").password("12345").authorities("admin").build();
+      UserDetails userDetails2 =  User.withUsername("Mohamed").password("12345").authorities("player").build();
+      inMemoryUserDetailsManager.createUser(userDetails);
+      inMemoryUserDetailsManager.createUser(userDetails2);
+      auth.userDetailsService(inMemoryUserDetailsManager);
+    }
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
     }
 }
