@@ -13,15 +13,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.formLogin();
 //        http.httpBasic();
 
-        http.authorizeRequests()
-                .antMatchers("/about/*").permitAll()
-                .antMatchers("/connect/*").permitAll()
-                .antMatchers("/basketball/*").authenticated()
-                .antMatchers("/football/*").authenticated()
-                .antMatchers("/subscribers/*").authenticated()
-                .antMatchers("/swimming/*").authenticated()
-                .and().formLogin()
-                .and().httpBasic();
+        http.authorizeRequests((requests)->requests.anyRequest().denyAll()).formLogin().and().httpBasic();
+
+//        http.authorizeRequests()
+//                .antMatchers("/about/*").permitAll()
+//                .antMatchers("/connect/*").permitAll()
+//                .antMatchers("/basketball/*").authenticated()
+//                .antMatchers("/football/*").authenticated()
+//                .antMatchers("/subscribers/*").authenticated()
+//                .antMatchers("/swimming/*").authenticated()
+//                .and().formLogin()
+//                .and().httpBasic();
 
 
     }
