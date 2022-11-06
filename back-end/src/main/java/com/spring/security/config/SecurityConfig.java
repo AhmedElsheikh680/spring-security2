@@ -46,11 +46,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     }
                 }).and()
 //                .csrf().disable()
-                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                .csrf().ignoringAntMatchers("/other/*").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
                 .authorizeRequests()
                 .antMatchers("/about/*").permitAll()
                 .antMatchers("/connect/*").permitAll()
+                .antMatchers("/other/*").permitAll()
                 .antMatchers("/basketball/*").authenticated()
                 .antMatchers("/football/*").authenticated()
                 .antMatchers("/subscribers/*").authenticated()
