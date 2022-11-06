@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="def301fb-bc45-4b32-9f14-be3da6a58ad1" name="Changes" comment="using new BcryptPasswordEncoder" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2H1mPXLjjE6tGoiC5xstro6tJgL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/spring-security/back-end",
+    "spring.configuration.checksum": "bdcaffb179ca4057e1628cc0aa6d1500"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SpringSecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-security" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.spring.security.SpringSecurityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="def301fb-bc45-4b32-9f14-be3da6a58ad1" name="Changes" comment="" />
+      <created>1667460975063</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667460975063</updated>
+      <workItem from="1667460976310" duration="22500000" />
+      <workItem from="1667721308988" duration="7332000" />
+    </task>
+    <task id="LOCAL-00001" summary="git commit -m &quot;init project&quot;">
+      <created>1667466210354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667466210354</updated>
+    </task>
+    <task id="LOCAL-00002" summary="WebSecurityConfigurerAdapter">
+      <created>1667467119997</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667467119997</updated>
+    </task>
+    <task id="LOCAL-00003" summary="config apis with spring security">
+      <created>1667470115683</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667470115683</updated>
+    </task>
+    <task id="LOCAL-00004" summary="permitAll(), denyAll()">
+      <created>1667470500944</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667470500944</updated>
+    </task>
+    <task id="LOCAL-00005" summary="adding users inMemoryAuthentication">
+      <created>1667471762641</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667471762641</updated>
+    </task>
+    <task id="LOCAL-00006" summary="adding users using InMemoryUserDetailsManager">
+      <created>1667472873285</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667472873285</updated>
+    </task>
+    <task id="LOCAL-00007" summary="spring security using db">
+      <created>1667476171606</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667476171606</updated>
+    </task>
+    <task id="LOCAL-00008" summary="create custom spring security login in model(Subscriber, subscriberSecurity)">
+      <created>1667478959120</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667478959120</updated>
+    </task>
+    <task id="LOCAL-00009" summary="create CustomUserDetailsService and test">
+      <created>1667481939911</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667481939911</updated>
+    </task>
+    <task id="LOCAL-00010" summary="using new BcryptPasswordEncoder">
+      <created>1667722426750</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667722426750</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="git commit -m &quot;init project&quot;" />
+    <MESSAGE value="WebSecurityConfigurerAdapter" />
+    <MESSAGE value="config apis with spring security" />
+    <MESSAGE value="permitAll(), denyAll()" />
+    <MESSAGE value="adding users inMemoryAuthentication" />
+    <MESSAGE value="adding users using InMemoryUserDetailsManager" />
+    <MESSAGE value="spring security using db" />
+    <MESSAGE value="create custom spring security login in model(Subscriber, subscriberSecurity)" />
+    <MESSAGE value="create CustomUserDetailsService and test" />
+    <MESSAGE value="using new BcryptPasswordEncoder" />
+    <option name="LAST_COMMIT_MESSAGE" value="using new BcryptPasswordEncoder" />
+  </component>
+</project>
