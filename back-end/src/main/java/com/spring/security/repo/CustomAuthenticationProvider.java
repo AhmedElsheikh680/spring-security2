@@ -23,13 +23,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     private PasswordEncoder passwordEncoder;
 
-    public CustomAuthenticationProvider(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
-
     @Autowired
-    public CustomAuthenticationProvider(SubscriberRepo subscriberRepo) {
+    public CustomAuthenticationProvider(SubscriberRepo subscriberRepo, PasswordEncoder passwordEncoder) {
         this.subscriberRepo = subscriberRepo;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override

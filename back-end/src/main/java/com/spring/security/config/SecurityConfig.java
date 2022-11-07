@@ -52,10 +52,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/about/*").permitAll()
                 .antMatchers("/connect/*").permitAll()
                 .antMatchers("/other/*").permitAll()
-                .antMatchers("/football/*").authenticated()
-                .antMatchers("/basketball/*").authenticated()
-                .antMatchers("/swimming/*").authenticated()
-                .antMatchers("/subscribers/*").authenticated()
+                .antMatchers("/football/*").hasAuthority("WRITE")
+                .antMatchers("/basketball/*").hasAuthority("READ")
+                .antMatchers("/swimming/*").hasAuthority("LISTEN")
+                .antMatchers("/subscribers/*").hasAuthority("DELETE")
                 .and().formLogin()
                 .and().httpBasic();
 
