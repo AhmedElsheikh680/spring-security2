@@ -22,24 +22,28 @@ import java.util.Set;
 public class JWTTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication !=null){
-           SecretKey secretKey =  Keys.hmacShaKeyFor(SecurityConstant.KEY.getBytes(StandardCharsets.UTF_8));
-           String jwt =  Jwts.builder().setSubject("Jwt Token")
-                    .claim("email", authentication.getName())
-                    .claim("authorities", authorities(authentication.getAuthorities()))
-                   .setIssuedAt(new Date())
-                   .setExpiration(new Date((new Date().getTime()+ 30000)))
-                   .signWith(secretKey).compact();
+        try{
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication !=null){
+                SecretKey secretKey =  Keys.hmacShaKeyFor(SecurityConstant.KEY.getBytes(StandardCharsets.UTF_8));
+                String jwt =  Jwts.builder().setSubject("Jwt Token")
+                        .claim("email", authentication.getName())
+                        .claim("authorities", authorities(authentication.getAuthorities()))
+                        .setIssuedAt(new Date())
+                        .setExpiration(new Date((new Date().getTime()+ 30000)))
+                        .signWith(secretKey).compact();
 
-           response.setHeader(SecurityConstant.HEADER, jwt);
+                response.setHeader(SecurityConstant.HEADER, jwt);
+            }
+        } catch (Exception e){
+            System.out.println(e.toString());
         }
         filterChain.doFilter(request, response);
     }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return !request.getServletPath().equals("/login");
+        return !request.getServletPath().equals("/user");
     }
 
     private String authorities(Collection<? extends GrantedAuthority> collections){

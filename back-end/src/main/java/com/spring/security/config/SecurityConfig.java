@@ -1,25 +1,19 @@
 package com.spring.security.config;
 
+import com.spring.security.jwt.JWTTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
+import java.util.Arrays;
 import java.util.Collections;
 
 @Configuration
@@ -44,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         corsConfiguration.setAllowedMethods(Collections.singletonList("*"));
                         corsConfiguration.setAllowCredentials(true);
                         corsConfiguration.setAllowedHeaders(Collections.singletonList("*"));
+                        corsConfiguration.setExposedHeaders(Arrays.asList("Authorization"));
                         corsConfiguration.setMaxAge(2500L);
                         return corsConfiguration;
                     }
@@ -52,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .csrf().ignoringAntMatchers("/other/*").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 //                .and()
                 .csrf().disable()
+                .addFilterAfter(new JWTTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers("/about/*").permitAll()
                 .antMatchers("/connect/*").permitAll()
@@ -60,9 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/basketball/*").hasRole("ADMIN")
                 .antMatchers("/swimming/*").hasRole("MANAGER")
                 .antMatchers("/subscribers/*").hasAnyRole("ADMIN", "MANAGER")
+                .antMatchers("/login").authenticated()
                 .and().formLogin()
                 .and().httpBasic();
-
 
     }
 
