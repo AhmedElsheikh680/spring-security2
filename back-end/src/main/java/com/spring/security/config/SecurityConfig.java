@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,6 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.authorizeRequests((requests)->requests.anyRequest().denyAll()).formLogin().and().httpBasic();
 
         http
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
                 .cors().configurationSource(new CorsConfigurationSource() {
                     @Override
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
@@ -46,8 +49,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     }
                 }).and()
 //                .csrf().disable()
-                .csrf().ignoringAntMatchers("/other/*").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                .and()
+//                .csrf().ignoringAntMatchers("/other/*").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                .and()
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/about/*").permitAll()
                 .antMatchers("/connect/*").permitAll()
