@@ -1,6 +1,7 @@
 package com.spring.security.config;
 
 import com.spring.security.jwt.JWTTokenFilter;
+import com.spring.security.jwt.JWTValidationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -48,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
                 .csrf().disable()
                 .addFilterAfter(new JWTTokenFilter(), BasicAuthenticationFilter.class)
+                .addFilterBefore(new JWTValidationFilter(), BasicAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers("/about/*").permitAll()
                 .antMatchers("/connect/*").permitAll()
